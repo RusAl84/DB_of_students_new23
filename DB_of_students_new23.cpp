@@ -1,5 +1,7 @@
 ﻿#include <iostream>
 #include "ClassEditData.h"
+#include <iostream>
+#include <string>
 using namespace std;
 
 
@@ -11,9 +13,10 @@ int main()
     cout << "Курсовая работа начата!\n";
     ClassEditData *cl =  new ClassEditData();
     string surName = cl->getData(editType::onlyAlpha); 
-    int month = atoi(cl->getData(editType::onlyAlpha).c_str());
-    cout << "Фамилия" << surName << endl;
-    cout << "Месяц" << month;
+    cl->clear();
+    string month = cl->getData(editType::onlyDigit);
+    cout << endl << "Фамилия: " << surName << endl;
+    cout << "Месяц: " << month;
 
 }
 

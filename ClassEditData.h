@@ -47,12 +47,17 @@ public:
 		else
 			return false;
 	}
+	void clear() {
+		system("cls");
+		data = "";
+	}
 	string getData(enum class editType et) {
 		char ch = 0;
 		while (ch != 13) { //13 - код enter чтобы ввести значения
 			ch = _getch();
 			if (ch == 8) {  // Backspace удалить символ
 				data.pop_back(); 
+				system("cls");
 				cout << data;
 				continue;
 			}
