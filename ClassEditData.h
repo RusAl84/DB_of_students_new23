@@ -78,10 +78,5 @@ public:
 		}
 		return data;
 	}
-
-
-
-
-
 };
 
