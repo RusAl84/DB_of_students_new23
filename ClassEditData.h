@@ -9,6 +9,9 @@
 
 using namespace std;
 
+enum class editType { onlyDigit, onlyAlpha, all };
+
+
 class ClassEditData
 {
 private:
@@ -17,59 +20,63 @@ public:
 	ClassEditData() {
 		data = "";
 	}
-	string deleteOneChar(string dataString) {
-		string tmpString = "";
-		tmpString = data;
-		data = "";
-		if (tmpString.length() > 0) {
-			for (int i = 0; i < tmpString.length() - 1; i++)
-				data = data + tmpString[i];
-		}
-		return data;
-	}
-
-	string getData(string dataString = "") {
-		char ch = 0;
-		while (ch != 13) { //13 - код enter чтобы ввести значения
-			ch = _getch();
-			if (ch == 8) {  // Backspace удалить символ
-				data = deleteOneChar(data);
-				cout << data;
-				continue;
-			}
-			cout << ch;
-			data = data + ch;
-		}
-		return data;
-	}
-
-
 	bool isDigit(char ch) {
 		if (ch >= 48 and ch <= 57)
 			return true;
 		else
 			return false;
 	}
-
-
-	int getDigitData(string dataString, int min, int max) {
+	bool isAlpha(int ch) {
+		if (ch >= 65 and ch <= 90)
+			return true;
+		if (ch >= 97 and ch <= 122)
+			return true;
+		if (ch >= -200 and ch <= -1)
+			return true;
+		return false;
+	}
+	bool isSpace(char ch) {
+		if (ch == 32)
+			return true;
+		else
+			return false;
+	}
+	bool isSpec(char ch) {
+		if (ch >= 33 and ch <= 47)
+			return true;
+		else
+			return false;
+	}
+	string getData(enum class editType et) {
 		char ch = 0;
 		while (ch != 13) { //13 - код enter чтобы ввести значения
 			ch = _getch();
 			if (ch == 8) {  // Backspace удалить символ
-				data = deleteOneChar(data);
+				data.pop_back(); 
 				cout << data;
 				continue;
 			}
-			if (isDigit(ch)){
+			if (et == editType::onlyDigit)
+				if (isDigit(ch)) {
+					cout << ch;
+					data = data + ch;
+				}
+			if (et == editType::onlyAlpha)
+				if (isAlpha(ch)) {
+					cout << ch;
+					data = data + ch;
+				}
+			if (et == editType::all) {
 				cout << ch;
 				data = data + ch;
 			}
 		}
-
-		return 0;
-
+		return data;
 	}
+
+
+
+
 
 };
 

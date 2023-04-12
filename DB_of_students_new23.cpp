@@ -10,8 +10,10 @@ int main()
     SetConsoleOutputCP(1251);
     cout << "Курсовая работа начата!\n";
     ClassEditData *cl =  new ClassEditData();
-    //string surName = cl->getData(); 
-    int month = cl->getDigitData("", 1, 12);
+    string surName = cl->getData(editType::onlyAlpha); 
+    int month = atoi(cl->getData(editType::onlyAlpha).c_str());
+    cout << "Фамилия" << surName << endl;
+    cout << "Месяц" << month;
 
 }
 
