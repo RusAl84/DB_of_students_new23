@@ -12,11 +12,11 @@ int main()
     SetConsoleOutputCP(1251);
     cout << "Курсовая работа начата!\n";
     ClassEditData *cl =  new ClassEditData();
-    cl->clear();
-    cout << "Введите фамилию: ";
+    cl->clear("Русаков");
+    cl->setLabel("Введите фамилию: ");
     string surName = cl->getData(editType::onlyAlpha); 
     cl->clear();
-    cout << "Введите месяц: ";
+    cl->setLabel("Введите месяц: ");
     string month = cl->getData(editType::onlyDigit);
     cout << endl << "Фамилия: " << surName << endl;
     cout << "Месяц: " << month;

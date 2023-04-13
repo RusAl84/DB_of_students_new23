@@ -15,10 +15,18 @@ enum class editType { onlyDigit, onlyAlpha, all };
 class ClassEditData
 {
 private:
+	string label;
 	string data;
 public:
 	ClassEditData() {
+		label = "";
 		data = "";
+	}
+	void setLabel(string _label) {
+		if (_label.length() > 1)
+			this->label = _label;
+		else
+			label = "";
 	}
 	bool isDigit(char ch) {
 		if (ch >= 48 and ch <= 57)
@@ -47,18 +55,20 @@ public:
 		else
 			return false;
 	}
-	void clear() {
+	void clear(string _data="") {
 		system("cls");
-		data = "";
+		data = _data;
 	}
+
 	string getData(enum class editType et) {
 		char ch = 0;
+		cout << label <<endl << data;
 		while (ch != 13) { //13 - код enter чтобы ввести значения
 			ch = _getch();
 			if (ch == 8) {  // Backspace удалить символ
 				data.pop_back(); 
 				system("cls");
-				cout << data;
+				cout << label << endl <<  data;
 				continue;
 			}
 			if (et == editType::onlyDigit)
