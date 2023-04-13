@@ -66,9 +66,11 @@ public:
 		while (ch != 13) { //13 - код enter чтобы ввести значения
 			ch = _getch();
 			if (ch == 8) {  // Backspace удалить символ
-				data.pop_back(); 
-				system("cls");
-				cout << label << endl <<  data;
+				if (data.length()>0){
+					data.pop_back(); 
+					system("cls");
+					cout << label << endl <<  data;
+				}
 				continue;
 			}
 			if (et == editType::onlyDigit)
@@ -88,5 +90,18 @@ public:
 		}
 		return data;
 	}
+	int getData(enum class editType et, int min, int max) {
+		if (et == editType::onlyDigit){
+			getData(et);
+			int num = atoi(data.c_str());
+			if (not (num >= min and num <= max)){
+				cout << endl << "Ошибка: Число которое вы ввели: " << num << " Выходит из диапазона (" << min << "; " << max << ") ";
+				getData(et, min, max);
+			}
+			num = atoi(data.c_str());
+			return num;
+		}
+	}
+
 };
 

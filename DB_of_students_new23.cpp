@@ -17,7 +17,7 @@ int main()
     string surName = cl->getData(editType::onlyAlpha); 
     cl->clear();
     cl->setLabel("Введите месяц: ");
-    string month = cl->getData(editType::onlyDigit);
+    int month = cl->getData(editType::onlyDigit, 1, 12);
     cout << endl << "Фамилия: " << surName << endl;
     cout << "Месяц: " << month;
 
