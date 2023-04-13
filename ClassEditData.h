@@ -102,6 +102,15 @@ public:
 			return num;
 		}
 	}
-
+	string getData(enum class editType et, int len) {
+		if (et == editType::onlyAlpha) {
+			getData(et);
+			if (data.length() >= len) {
+				cout << endl << "Ошибка: Длина строки больше чем допускается: " << data.length() << " Разрешено: " << len << " ";
+				getData(et, len);
+			}
+			return data;
+		}
+	}
 };
 

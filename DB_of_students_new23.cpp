@@ -14,7 +14,7 @@ int main()
     ClassEditData *cl =  new ClassEditData();
     cl->clear("Русаков");
     cl->setLabel("Введите фамилию: ");
-    string surName = cl->getData(editType::onlyAlpha); 
+    string surName = cl->getData(editType::onlyAlpha, 10); 
     cl->clear();
     cl->setLabel("Введите месяц: ");
     int month = cl->getData(editType::onlyDigit, 1, 12);
