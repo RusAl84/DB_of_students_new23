@@ -11,7 +11,7 @@ class ClassMenu
 {
 private:
 	string upTitle; //Заголовок меню (сверху)
-	string items[100];//Пункты меню
+	string items[100];//Пункты меню  
 	string downTitle; //Заголовок  меню (снизу)
 public:
 
