@@ -22,7 +22,7 @@ public:
 		label = "";
 		data = "";
 	}
-	void setLabel(string _label) {
+	void setLabel(string _label="¬ведите значение") {
 		if (_label.length() > 1)
 			this->label = _label;
 		else
