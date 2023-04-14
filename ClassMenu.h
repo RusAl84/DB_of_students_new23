@@ -49,7 +49,7 @@ public:
 		cl->setLabel("¬ведите число");
 		int min=0, max = 10;
 		int selectItem = cl->getData(editType::onlyDigit, min, max);
-
+		delete cl;
 		return selectItem;
 	}
 

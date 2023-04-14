@@ -34,6 +34,14 @@ public:
 		else
 			return false;
 	}
+	bool isStringDigit(string _str) {
+		for (int i = 0; i < _str.length(); i++)
+			if (not isDigit(_str[i]))
+				return false;
+		if (_str.length()==0)
+			return false;
+		return true;
+	}
 	bool isAlpha(int ch) {
 		if (ch >= 65 and ch <= 90)
 			return true;
@@ -93,19 +101,22 @@ public:
 	int getData(enum class editType et, int min, int max) {
 		if (et == editType::onlyDigit){
 			getData(et);
-			int num = atoi(data.c_str());
+			int num=max+1;
+			if (isStringDigit(data))
+				num = atoi(data.c_str());
 			if (not (num >= min and num <= max)){
 				cout << endl << "Ошибка: Число которое вы ввели: " << num << " Выходит из диапазона (" << min << "; " << max << ") ";
 				getData(et, min, max);
 			}
-			num = atoi(data.c_str());
+			if (isStringDigit(data))
+				num = atoi(data.c_str());
 			return num;
 		}
 	}
 	string getData(enum class editType et, int len) {
 		if (et == editType::onlyAlpha) {
 			getData(et);
-			if (data.length() >= len) {
+			if (data.length() > len) {
 				cout << endl << "Ошибка: Длина строки больше чем допускается: " << data.length() << " Разрешено: " << len << " ";
 				getData(et, len);
 			}
