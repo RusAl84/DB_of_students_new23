@@ -9,7 +9,7 @@
 
 using namespace std;
 
-enum class editType { onlyDigit, onlyAlpha, all };
+enum class editType : char { onlyDigit, onlyAlpha, all };
 
 
 class ClassEditData

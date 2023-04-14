@@ -3,6 +3,8 @@
 
 using namespace std;
 
+enum class sex : char { Women, Men, Any };
+enum class markType : char { Fail, Pass, Excellent5, Good4, Satisfactory3, Bad2};
 
 class ClassStudent
 {
@@ -11,10 +13,7 @@ class ClassStudent
 
 struct ExamsRecords {
 	string name;
-	int mark;
-	// 0 - не зачет  
-	// 1 - зачет  
-	// 2,3,4,5 - оценки
+	enum class markType;
 	bool isEmpty; // заполнено ли поле?
 };
 
@@ -28,17 +27,9 @@ struct StudentNode
 	string group;
 	string recordСardNumber;
 	string birthDateString;
-	bool sex; // true - мальчик
-	// false - девочка
+	enum class sex sex; 
 	int startYear;
-
 	ExamsRecords examsRecordsData[9][10];
 	StudentNode* next;
 	int id;
-	double avrMarks;
-	double Marks45;
-	double countMarks5;
-	double countMarks4;
-	double countMarks3;
-
 };
