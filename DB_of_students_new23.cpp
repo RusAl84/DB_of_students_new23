@@ -27,9 +27,13 @@ int main()
     //cout << endl << "Фамилия: " << surName << endl;
     //cout << "Месяц: " << month;
 
-    ClassMenu* mainMenu = new ClassMenu();
-
+    ClassMenu* mainMenu = new ClassMenu("Меню (как провести выходные)");
+    mainMenu->addMenuItem("Выучить Матан");
+    mainMenu->addMenuItem("Выучить программирование");
+    mainMenu->addMenuItem("Начать делать курсовую");
+    mainMenu->addMenuItem("Выучить Физику");
+    mainMenu->addMenuItem("Выучить Линал");
     int selectedItem = mainMenu->run();
-
+    cout << endl << "Вы выбрали: " << selectedItem;
 }
 
