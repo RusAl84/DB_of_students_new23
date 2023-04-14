@@ -2,6 +2,7 @@
 #include "ClassEditData.h"
 #include <iostream>
 #include <string>
+#include "ClassMenu.h"
 using namespace std;
 
 
@@ -13,18 +14,22 @@ int main()
 
     cout << "Курсовая работа начата!\n";
 
-    ClassEditData *cl =  new ClassEditData();
-    cl->clear("Русаков");
-    cl->setLabel("Введите фамилию: ");
-    string surName = cl->getData(editType::onlyAlpha, 10); 
+    //ClassEditData *cl =  new ClassEditData();
+    //cl->clear("Русаков");
+    //cl->setLabel("Введите фамилию: ");
+    //string surName = cl->getData(editType::onlyAlpha, 10); 
 
-    cl->clear();
-    cl->setLabel("Введите месяц: ");
-    int month = cl->getData(editType::onlyDigit, 1, 12);
+    //cl->clear();
+    //cl->setLabel("Введите месяц: ");
+    //int month = cl->getData(editType::onlyDigit, 1, 12);
 
 
-    cout << endl << "Фамилия: " << surName << endl;
-    cout << "Месяц: " << month;
+    //cout << endl << "Фамилия: " << surName << endl;
+    //cout << "Месяц: " << month;
+
+    ClassMenu* mainMenu = new ClassMenu();
+
+    int selectedItem = mainMenu->run();
 
 }
 
