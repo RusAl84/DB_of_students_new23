@@ -101,7 +101,7 @@ public:
 	int getData(enum class editType et, int min, int max) {
 		if (et == editType::onlyDigit){
 			getData(et);
-			int num=max+1;
+			int num = max + 1;
 			if (isStringDigit(data))
 				num = atoi(data.c_str());
 			if (not (num >= min and num <= max)){

@@ -15,8 +15,8 @@ private:
 	string downTitle; //Заголовок  меню (снизу)
 public:
 
-	ClassMenu(string _upTitle){	
-		upTitle = _upTitle;
+	ClassMenu(const string _upTitle){	
+		upTitle = move(_upTitle);
 	}
 	ClassMenu(): ClassMenu("Главное меню"){
 		downTitle = "Выберите пункт из меню (число): ";
@@ -51,6 +51,7 @@ public:
 		int selectItem = cl->getData(editType::onlyDigit, min, max);
 		delete cl;
 		return selectItem;
+		
 	}
 
 };
