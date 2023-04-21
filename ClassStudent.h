@@ -19,14 +19,14 @@ struct ExamsRecords {
 
 struct StudentNode
 {
-	string surName;
-	string name;
-	string middleName;
-	string faculty;
-	string department;
-	string group;
-	string record—ardNumber;
-	string birthDateString;
+	char surName[30];
+	char name[30];
+	char middleName[30];
+	char faculty[30];
+	char department[30];
+	char group[30];
+	char record—ardNumber[30];
+	char birthDateString[30];
 	enum class sex sex; 
 	int startYear;
 	ExamsRecords examsRecordsData[9][10];

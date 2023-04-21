@@ -76,7 +76,8 @@ public:
 			if (ch == 8) {  // Backspace удалить символ
 				if (data.length()>0){
 					data.pop_back(); 
-					system("cls");
+					//system("cls");
+					cout << endl;
 					cout << label << endl <<  data;
 				}
 				continue;
