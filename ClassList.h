@@ -35,7 +35,7 @@ public:
     void addItem(string _data)
     {
         struct node* newItem = new node();
-        newItem->data = data;
+        newItem->data = _data;
         if (countItem == 0)
             newItem->next = NULL;
         else
@@ -47,19 +47,19 @@ public:
     /// Вставка элемента в список
     /// </summary>
     /// <param name="index">индекс после которого вставить</param>
-    /// <param name="data">значение которое необходимо вставить</param>
-    void insertItem(int index, int data) {
+    /// <param name="_data">значение которое необходимо вставить</param>
+    void insertItem(int index, string _data) {
         if (not (index >= 0 and index <= countItem and countItem >= 0))
             return;
         if (index == 0)
-            addItem(data);
+            addItem(_data);
         else {
             struct node* current = myHead;
             for (int i = 0; i < index - 1; i++) {
                 current = current->next;
             }
             struct node* newItem = new node();
-            newItem->data = data;
+            newItem->data = _data;
             newItem->next = current->next;
             current->next = newItem;
             countItem++;
@@ -69,15 +69,15 @@ public:
     /// Изменить элемент списка
     /// </summary>
     /// <param name="index">индекс изменяемого элемента</param>
-    /// <param name="data">значение на которое нужно изменить</param>
-    void editItem(int index, int data) {
+    /// <param name="_data">значение на которое нужно изменить</param>
+    void editItem(int index, string _data) {
         if (index >= 0 and index < countItem and countItem>0) {
             struct node* current = myHead;
             for (int i = 0; i < index; i++) {
                 current = current->next;
                 //cout << "+" << current->data;
             }
-            current->data = data;
+            current->data = _data;
         }
         else {
             cout << endl << "Ошибка индекс не в диапазоне";

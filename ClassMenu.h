@@ -13,6 +13,7 @@ private:
 	string upTitle; //Заголовок меню (сверху)
 	string items[100];//Пункты меню  
 	string downTitle; //Заголовок  меню (снизу)
+
 public:
 
 	ClassMenu(string _upTitle){	
