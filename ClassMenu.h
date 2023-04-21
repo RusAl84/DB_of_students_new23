@@ -15,8 +15,9 @@ private:
 	string downTitle; //Заголовок  меню (снизу)
 public:
 
-	ClassMenu(const string _upTitle){	
+	ClassMenu(string _upTitle){	
 		upTitle = move(_upTitle);
+		//upTitle =  _upTitle;
 	}
 	ClassMenu(): ClassMenu("Главное меню"){
 		downTitle = "Выберите пункт из меню (число): ";

@@ -14,10 +14,10 @@ int main()
 
     cout << "Курсовая работа начата!\n";
 
-    //ClassEditData *cl =  new ClassEditData();
-    //cl->clear("Русаков");
-    //cl->setLabel("Введите фамилию: ");
-    //string surName = cl->getData(editType::onlyAlpha, 10); 
+    ClassEditData *cl =  new ClassEditData();
+    cl->clear("Русаков");
+    cl->setLabel("Введите фамилию: ");
+    string surName = cl->getData(editType::onlyAlpha, 10); 
 
     //cl->clear();
     //cl->setLabel("Введите месяц: ");

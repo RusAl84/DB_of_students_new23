@@ -131,6 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClassEditData.h" />
+    <ClInclude Include="ClassList.h" />
     <ClInclude Include="ClassMenu.h" />
     <ClInclude Include="ClassStudent.h" />
   </ItemGroup>
