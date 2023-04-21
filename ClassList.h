@@ -65,6 +65,9 @@ public:
             countItem++;
         }
     }
+    void push_back(string _data) {
+        insertItem(countItem, _data);
+    }
     /// <summary>
     /// Изменить элемент списка
     /// </summary>
@@ -113,6 +116,34 @@ public:
             }
         }
 
+    }
+    int getCount() {
+        return countItem;
+    }
+    string getItem(int index) {
+        string _data = "Error";
+        if (index >= 0 and index < countItem and countItem>0) {
+            struct node* current = myHead;
+            for (int i = 0; i < index; i++) {
+                current = current->next;
+                //cout << "+" << current->data;
+            }
+            _data = current->data;
+        }
+        else {
+            cout << endl << "Ошибка индекс не в диапазоне";
+        }
+        return _data;
+    }
+    void printItems4Menu()
+    {
+        struct node* current = myHead;
+        int i = 0;
+        while (current != NULL){
+            cout << i << ". " << current->data << endl;
+            i++;
+            current = current->next;
+        }
     }
 };
 
