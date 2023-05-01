@@ -27,6 +27,10 @@ public:
         myHead;
         countItem = 0;
     }
+    ~ClassList() {
+        myHead;
+        countItem = 0;
+    }
 
     /// <summary>
     /// Добавляет элемент в начало.
