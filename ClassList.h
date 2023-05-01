@@ -28,8 +28,13 @@ public:
         countItem = 0;
     }
     ~ClassList() {
-        myHead;
-        countItem = 0;
+        struct node* old = NULL; 
+        struct node* current = myHead;
+        while (current != NULL) {
+            old = current;
+            current = current->next;
+            delete old;
+        }
     }
 
     /// <summary>

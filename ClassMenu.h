@@ -28,7 +28,7 @@ public:
 	}
 
 	~ClassMenu() {
-		delete items();
+		delete items;
 	}
 	
 	void addMenuItem(string _item) {
