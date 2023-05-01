@@ -52,7 +52,6 @@ public:
 		int selectItem = cl->getData(editType::onlyDigit, min, max);
 		delete cl;
 		return selectItem;
-		
 	}
 
 };

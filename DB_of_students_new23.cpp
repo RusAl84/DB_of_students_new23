@@ -14,26 +14,26 @@ int main()
 
     cout << "Курсовая работа начата!\n";
 
+    // Тестирование меню
     //ClassEditData *cl =  new ClassEditData();
     //cl->clear("Русаков");
     //cl->setLabel("Введите фамилию: ");
-    //string surName = cl->getData(editType::onlyAlpha, 10); 
-
+    //string surName = cl->getData(editType::onlyAlpha, 10);
     //cl->clear();
     //cl->setLabel("Введите месяц: ");
     //int month = cl->getData(editType::onlyDigit, 1, 12);
-
-
     //cout << endl << "Фамилия: " << surName << endl;
     //cout << "Месяц: " << month;
 
     ClassMenu* mainMenu = new ClassMenu("Основное меню");
-    mainMenu->addMenuItem("Выход");
-    mainMenu->addMenuItem("Добавить данные о студенте");
-    mainMenu->addMenuItem("Отобразить/изменить данные о студентах");
-    mainMenu->addMenuItem("Удалить студента");
-    mainMenu->addMenuItem("Выполнить задание");
+    mainMenu->addMenuItem("Выход"); // 0
+    mainMenu->addMenuItem("Отобразить/изменить данные о студентах"); // 1 
+    mainMenu->addMenuItem("Добавить данные о новом студенте"); // 2
+    mainMenu->addMenuItem("Выполнить задание"); // 3
     int selectedItem = mainMenu->run();
+    
+    
     cout << endl << "Вы выбрали: " << selectedItem;
+
 }
 
