@@ -72,6 +72,10 @@ public:
 	}
 
 	void addNewStudent() {
+		setDefaultData();
+		viewInfo();
+
+		ClassMenu* studMenu = new ClassMenu("Меню редактирования студента");
 		ClassEditData *edit =  new ClassEditData();
 		edit->clear("");
 		edit->setLabel("Введите фамилию: ");
