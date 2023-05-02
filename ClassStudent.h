@@ -11,15 +11,17 @@ class ClassStudent
 {
 private:
 	string filename;
+	StudentNode* st;
 public:
 	ClassStudent() {
 		filename = "database.bin";
+		st = new StudentNode();
 	}
-	void viewInfo(StudentNode *st) {
+	void viewInfo() {
 		cout << "_________Информация о студенте:_________" << endl;
 		cout << "Фамилия: " << st->surName << "Имя: " << st->name << "Отчество: " << st->middleName << endl;
 		cout << "Факультет: " << st->faculty << "Кафедра: " << st->department << "Группа: " << st->group << endl;
-		//char recordСardNumber[30];
+		cout << "Номер зачетной книжки: " << st->recordСardNumber;
 		//char birthDateString[30];
 		//enum class sex sex;
 		//int startYear;
@@ -41,24 +43,22 @@ public:
 };
 
 struct ExamsRecords {
-	string name;
-	enum class markType;
+	string name; // Название предмета
+	enum class markType; // Оценка
 	bool isEmpty; // заполнено ли поле?
 };
 
-struct StudentNode
+struct StudentNode  // Структура студент
 {
-	char surName[30];
-	char name[30];
-	char middleName[30];
-	char faculty[30];
-	char department[30];
-	char group[30];
-	char recordСardNumber[30];
-	char birthDateString[30];
-	enum class sex sex; 
-	int startYear;
-	ExamsRecords examsRecordsData[9][10];
-	StudentNode* next;
-	int id;
+	char surName[30]; // Фамилия
+	char name[30]; // Имя
+	char middleName[30]; // Отчество
+	char faculty[30]; // Институт 
+	char department[30]; // Кафедра
+	char group[30]; // Группа	
+	char recordСardNumber ; // Номер зачетной книжки
+	char birthDateString[15]; // Дата рождения
+	enum class sex sex; // Пол
+	int startYear; // Год начала обучения
+	ExamsRecords examsRecordsData[9][10]; // Оценки за сессию  9 сессий по 10 слотов под зачеты и экзамены
 };
