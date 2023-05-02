@@ -38,6 +38,9 @@ int main()
         switch (selectedItem)
         { 
         case 1:
+            st->setDefaultData();
+            st->viewInfo();
+            _getch();
             st->addNewStudent();
             break;
         deafault:
