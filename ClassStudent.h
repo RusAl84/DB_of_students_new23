@@ -45,7 +45,7 @@ public:
 struct ExamsRecords {
 	string name; // Название предмета
 	enum class markType; // Оценка
-	bool isEmpty; // заполнено ли поле?
+	bool isEmpty; // заполнен ли слот?
 };
 
 struct StudentNode  // Структура студент
