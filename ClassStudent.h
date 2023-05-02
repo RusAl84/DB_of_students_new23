@@ -91,11 +91,22 @@ public:
 		studMenu->addMenuItem("Изменить год  начала обучения"); // 8
 		studMenu->addMenuItem("Изменить номер зачетной книжки"); // 9
 		studMenu->addMenuItem("Просмотреть/изменить успеваемость"); // 10
-		edit->clear("");
-		edit->setLabel("Введите фамилию: ");
-		string surName = edit->getData(editType::onlyAlpha, 10);
-
-
+		int selectedItem = -1;
+		while (selectedItem != 0) {
+			selectedItem = studMenu->run();
+			switch (selectedItem)
+			{
+			case 1:
+				edit->clear("");
+				edit->setLabel("Введите фамилию: ");
+				int l = 30;
+				string tmps = edit->getData(editType::onlyAlpha, l);
+				strncpy_s(st.surName, tmps.c_str(), l);
+				break;
+			deafault:
+				break;
+			}
+		}
 
 		delete studMenu;
 		delete edit;

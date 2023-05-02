@@ -39,7 +39,7 @@ int main()
         { 
         case 1:
             st->setDefaultData();
-            st->viewInfo();
+            st->printInfo();
             _getch();
             st->addNewStudent();
             break;
