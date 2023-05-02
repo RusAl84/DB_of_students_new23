@@ -58,9 +58,9 @@ public:
 	}
 
 	void viewInfo() {
-		cout << endl << "_________Информация о студенте:_________" << endl;
+		cout << endl << " _________Информация о студенте:_________" << endl;
 		cout << " Фамилия: " << st.surName << " Имя: " << st.name << " Отчество: " << st.middleName << endl;
-		cout << " Факультет: " << st.faculty << " Кафедра: " << st.department << " Группа: " << st.group << endl;
+		cout << " Институт: " << st.faculty << " Кафедра: " << st.department << " Группа: " << st.group << endl;
 		cout << " Номер зачетной книжки: " << st.recordСardNumber << " Дата рождения: " << st.birthDateString << endl;
 		cout << " Пол: ";
 		if (st.sex == sex::Men) { cout << "мужской "; }
@@ -69,6 +69,10 @@ public:
 		cout << " Год  начала обучения: " << st.startYear << endl;
 		//cout << " Для того чтобы посмотреть успеваемость нажмите 1";
 		//ExamsRecords examsRecordsData[9][10];
+		for (int i = 0; i < 9; i++)
+			for (int j = 0; j < 10; j++) {
+				st.examsRecordsData[i][j].isEmpty = true;
+			}
 	}
 
 	void addNewStudent() {
@@ -77,11 +81,24 @@ public:
 
 		ClassMenu* studMenu = new ClassMenu("Меню редактирования студента");
 		ClassEditData *edit =  new ClassEditData();
+		studMenu->addMenuItem("Выход"); // 0
+		studMenu->addMenuItem("Изменить фамилию"); // 1 
+		studMenu->addMenuItem("Изменить имя"); // 2
+		studMenu->addMenuItem("Изменить отчество"); // 3
+		studMenu->addMenuItem("Изменить институт"); // 4
+		studMenu->addMenuItem("Изменить кафедру"); // 5
+		studMenu->addMenuItem("Изменить группу"); // 6
+		studMenu->addMenuItem("Изменить пол"); // 7
+		studMenu->addMenuItem("Изменить год  начала обучения"); // 8
+		studMenu->addMenuItem("Изменить номер зачетной книжки"); // 9
+		studMenu->addMenuItem("Просмотреть/изменить успеваемость"); // 10
 		edit->clear("");
 		edit->setLabel("Введите фамилию: ");
 		string surName = edit->getData(editType::onlyAlpha, 10);
 
 
+
+		delete studMenu;
 		delete edit;
 	}
 
