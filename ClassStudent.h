@@ -55,9 +55,13 @@ public:
 		strncpy_s(st.birthDateString, "27.12.1984", 30);
 		st.sex = sex::Men; 
 		st.startYear=2002; 
+		for (int i = 0; i < 9; i++)
+			for (int j = 0; j < 10; j++) {
+				st.examsRecordsData[i][j].isEmpty = true;
+			}
 	}
 
-	void viewInfo() {
+	void printInfo() {
 		cout << endl << " _________Информация о студенте:_________" << endl;
 		cout << " Фамилия: " << st.surName << " Имя: " << st.name << " Отчество: " << st.middleName << endl;
 		cout << " Институт: " << st.faculty << " Кафедра: " << st.department << " Группа: " << st.group << endl;
@@ -67,17 +71,12 @@ public:
 		if (st.sex == sex::Women) { cout << "женский "; }
 		if (st.sex == sex::Any) { cout << "не определен "; }
 		cout << " Год  начала обучения: " << st.startYear << endl;
-		//cout << " Для того чтобы посмотреть успеваемость нажмите 1";
-		//ExamsRecords examsRecordsData[9][10];
-		for (int i = 0; i < 9; i++)
-			for (int j = 0; j < 10; j++) {
-				st.examsRecordsData[i][j].isEmpty = true;
-			}
+
 	}
 
 	void addNewStudent() {
 		setDefaultData();
-		viewInfo();
+		printInfo();
 
 		ClassMenu* studMenu = new ClassMenu("Меню редактирования студента");
 		ClassEditData *edit =  new ClassEditData();
