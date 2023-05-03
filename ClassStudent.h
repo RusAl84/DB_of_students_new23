@@ -38,7 +38,6 @@ private:
 public:
 	ClassStudent() {
 		filename = "database.bin";
-
 	}
 	~ClassStudent() {
 
@@ -90,6 +89,12 @@ public:
 		studMenu->addMenuItem("Изменить номер зачетной книжки"); // 9
 		studMenu->addMenuItem("Просмотреть/изменить успеваемость"); // 10
 		int selectedItem = -1;
+		ClassMenu* sexMenu = new ClassMenu("Меню редактирования пола студента");
+		sexMenu->addMenuItem("Выход"); // 0
+		sexMenu->addMenuItem("Мужской"); // 1 
+		sexMenu->addMenuItem("Женский"); // 2
+		sexMenu->addMenuItem("Неопределен"); // 3
+		int sexItem = -1;
 		while (selectedItem != 0) {
 			printInfo();
 			_getch();
@@ -121,29 +126,25 @@ public:
 					strncpy_s(st.group, edit->getData(editType::all, 30).c_str(), 30);
 					break;
 				case 7:
-					ClassMenu * sexMenu = new ClassMenu("Меню редактирования пола студента");
-					sexMenu->addMenuItem("Выход"); // 0
-					sexMenu->addMenuItem("Мужской"); // 1 
-					sexMenu->addMenuItem("Женский"); // 2
-					sexMenu->addMenuItem("Неопределен"); // 3
-					int sexItem = -1;
+
 					while (sexItem != 0) {
 						sexItem = sexMenu->run();
-						switch (sexItem)
-						{
-							case 0: sexItem = 0; break;
-							case 1: st.sex = sex::Men; sexItem = 0;  break;
-							case 2: st.sex = sex::Women; sexItem = 0;  break;
-							case 3: st.sex = sex::Any; sexItem = 0;  break;
-						}
+						if (sexItem == 1) { st.sex = sex::Men; sexItem = 0; }
+						if (sexItem == 2) { st.sex = sex::Women; sexItem = 0; }
+						if (sexItem == 3) { st.sex = sex::Any; sexItem = 0; }
 					}
-					delete sexMenu;
+
+					break;
+				case 8:
+					edit->clear(to_string(st.startYear));
+					edit->setLabel("Введите год начала обучения: ");
+					st.startYear = edit->getData(editType::onlyDigit, 1940, 2012);
 					break;
 				deafault:
 					break;
 			}
 		}
-
+		delete sexMenu;
 		delete studMenu;
 		delete edit;
 	}
