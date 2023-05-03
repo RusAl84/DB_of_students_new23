@@ -2,7 +2,8 @@
 #include <string>
 #include <iostream>
 #include "ClassEditData.h"
-
+#include <windows.h>
+#include <stdio.h>
 using namespace std;
 
 enum class sex : char { Women, Men, Any };  // пол студента
@@ -37,7 +38,7 @@ private:
 	StudentNode st;
 public:
 	ClassStudent() {
-		filename = "database.bin";
+		filename = "database.bin.txt";
 	}
 	~ClassStudent() {
 
@@ -149,5 +150,11 @@ public:
 		delete edit;
 	}
 
+	void save2file() {
+		FILE* binaryFile;
+		fopen_s(&binaryFile, filename.c_str(), "a");
+		fwrite(&st, sizeof(st), 1, binaryFile);
+		fclose(binaryFile);
+	}
 };
 
