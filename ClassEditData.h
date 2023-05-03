@@ -76,7 +76,7 @@ public:
 			if (ch == 8) {  // Backspace удалить символ
 				if (data.length()>0){
 					data.pop_back(); 
-					//system("cls");
+					system("cls");
 					cout << endl;
 					cout << label << endl <<  data;
 				}
@@ -105,8 +105,8 @@ public:
 			int num = max + 1;
 			if (isStringDigit(data))
 				num = atoi(data.c_str());
-			if (not (num >= min and num <= max)){
-				cout << endl << "Ошибка: Число которое вы ввели: " << num << " Выходит из диапазона (" << min << "; " << max << ") ";
+			if (not (num >= min and num < max)){
+				cout << endl << "Ошибка: Число которое вы ввели: " << num << " Выходит из диапазона (" << min << "; " << max-1 << ") ";
 				getData(et, min, max);
 			}
 			if (isStringDigit(data))
@@ -115,7 +115,7 @@ public:
 		}
 	}
 	string getData(enum class editType et, int len) {
-		if (et == editType::onlyAlpha) {
+		if (et == editType::onlyAlpha or et == editType::all) {
 			getData(et);
 			if (data.length() > len) {
 				cout << endl << "Ошибка: Длина строки больше чем допускается: " << data.length() << " Разрешено: " << len << " ";

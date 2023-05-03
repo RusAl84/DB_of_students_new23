@@ -37,10 +37,7 @@ int main()
         selectedItem = mainMenu->run();
         switch (selectedItem)
         { 
-        case 1:
-            st->setDefaultData();
-            st->printInfo();
-            _getch();
+        case 2:
             st->addNewStudent();
             break;
         deafault:
