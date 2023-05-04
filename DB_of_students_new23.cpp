@@ -48,7 +48,5 @@ int main()
             break;
         }
     }
-    //cout << endl << "Вы выбрали: " << selectedItem;
-
 }
 

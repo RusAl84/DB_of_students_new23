@@ -45,8 +45,7 @@ public:
 	~ClassStudent() {
 		delete edit;
 	}
-	void setDefaultData()
-	{
+	void setDefaultData() {
 		strncpy_s(st.surName, "Русаков",30);
 		strncpy_s(st.name, "Вячеслав",30);
 		strncpy_s(st.middleName, "Андреевич",30);
