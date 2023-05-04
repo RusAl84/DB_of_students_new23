@@ -98,6 +98,7 @@ public:
 		sexMenu->addMenuItem("Женский"); // 2
 		sexMenu->addMenuItem("Неопределен"); // 3
 		int sexItem = -1;
+		string str;
 		while (selectedItem != 0) {
 			printInfo();
 			_getch();
@@ -106,27 +107,33 @@ public:
 			{
 				case 1:
 					edit->clear(st.surName); edit->setLabel("Введите фамилию: ");
-					strncpy_s(st.surName, edit->getData(editType::onlyAlpha, 30).c_str(), 30);
+					str = edit->getData(editType::onlyAlpha, 30).c_str();
+					strncpy_s(st.surName, str.c_str(), str.size());
 					break;
 				case 2:
 					edit->clear(st.name); edit->setLabel("Введите имя: ");
-					strncpy_s(st.name, edit->getData(editType::onlyAlpha, 30).c_str(), 30);
+					str = edit->getData(editType::onlyAlpha, 30).c_str();
+					strncpy_s(st.name, str.c_str(), str.size());
 					break;				
 				case 3:
 					edit->clear(st.middleName); edit->setLabel("Введите отчество: ");
-					strncpy_s(st.middleName, edit->getData(editType::onlyAlpha, 30).c_str(), 30);
+					str = edit->getData(editType::onlyAlpha, 30).c_str();
+					strncpy_s(st.middleName, str.c_str(), str.size());
 					break;
 				case 4:
 					edit->clear(st.institute); edit->setLabel("Введите институт: ");
-					strncpy_s(st.institute, edit->getData(editType::onlyAlpha, 30).c_str(), 30);
+					str = edit->getData(editType::onlyAlpha, 30).c_str();
+					strncpy_s(st.institute, str.c_str(), str.size());
 					break;				
 				case 5:
 					edit->clear(st.department); edit->setLabel("Введите кафедру: ");
-					strncpy_s(st.department, edit->getData(editType::onlyAlpha, 30).c_str(), 30);
+					str = edit->getData(editType::onlyAlpha, 30).c_str();
+					strncpy_s(st.department, str.c_str(), str.size());
 					break;
 				case 6:
 					edit->clear(st.group); edit->setLabel("Введите группу: ");
-					strncpy_s(st.group, edit->getData(editType::all, 30).c_str(), 30);
+					str = edit->getData(editType::onlyAlpha, 30).c_str();
+					strncpy_s(st.group, str.c_str(), str.size());
 					break;
 				case 7:
 
@@ -202,9 +209,13 @@ public:
 		FILE* tmpFile;
 		fopen_s(&binaryFile, filename.c_str(), "r");
 		fopen_s(&tmpFile, "tmp.txt", "w+");
+		StudentNode tmp_st;
 		for (int i = 0; i < size; i++) {
-			fread_s(&st, sizeof(st), sizeof(st), 1, binaryFile);
-			fwrite(&st, sizeof(st), 1, tmpFile);
+			fread_s(&tmp_st, sizeof(tmp_st), sizeof(tmp_st), 1, binaryFile);
+			if (i==num)
+				fwrite(&st, sizeof(st), 1, tmpFile);
+			else
+				fwrite(&tmp_st, sizeof(tmp_st), 1, tmpFile);
 		}
 		fclose(binaryFile);
 		fclose(tmpFile);
