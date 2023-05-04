@@ -37,8 +37,11 @@ int main()
         selectedItem = mainMenu->run();
         switch (selectedItem)
         { 
+        case 1:
+            st->getShortInfoFromFile();
+            break;
         case 2:
-            st->addNewStudent();
+            st->editStudent();
             st->addSt2File();
             break;
         deafault:

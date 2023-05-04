@@ -36,12 +36,14 @@ class ClassStudent
 private:
 	string filename;
 	StudentNode st;
+	ClassEditData* edit;
 public:
 	ClassStudent() {
 		filename = "database.bin.txt";
+		edit = new ClassEditData();
 	}
 	~ClassStudent() {
-
+		delete edit;
 	}
 	void setDefaultData()
 	{
@@ -74,10 +76,10 @@ public:
 
 	}
 
-	void addNewStudent() {
+	void editStudent() {
 		setDefaultData();
 		ClassMenu* studMenu = new ClassMenu("Меню редактирования студента");
-		ClassEditData *edit =  new ClassEditData();
+
 		studMenu->addMenuItem("Выход"); // 0
 		studMenu->addMenuItem("Изменить фамилию"); // 1 
 		studMenu->addMenuItem("Изменить имя"); // 2
@@ -147,14 +149,69 @@ public:
 		}
 		delete sexMenu;
 		delete studMenu;
-		delete edit;
+
 	}
 
 	void addSt2File() {
 		FILE* binaryFile;
-		fopen_s(&binaryFile, filename.c_str(), "a");
+		fopen_s(&binaryFile, filename.c_str(), "a+");
 		fwrite(&st, sizeof(st), 1, binaryFile);
 		fclose(binaryFile);
 	}
+
+	int countRecords() {
+		FILE* binaryFile;
+		fopen_s(&binaryFile, filename.c_str(), "r");
+		fseek(binaryFile, 0L, SEEK_END);
+		int size = ftell(binaryFile);
+		fclose(binaryFile);
+		return size / sizeof(st);
+	}
+
+	void getShortInfoFromFile() {
+		system("cls");
+		cout << "Список данных о студентах: " << endl;
+		int size = countRecords();
+		FILE* binaryFile;
+		fopen_s(&binaryFile, filename.c_str(), "r");
+		for (int i=0; i<size; i++) {
+			fread_s(&st, sizeof(st), sizeof(st), 1, binaryFile);
+			cout << i << ". " << st.surName << " " << st.name << " " << st.middleName << " " << st.group << endl;
+		}
+		fclose(binaryFile);
+		_getch();
+		edit->clear();
+		edit->setLabel("Введите номер из списка чтобы получить подробную информацию о студенте. ");
+		int num = edit->getData(editType::onlyDigit, 0, size);
+		setStudentData(num);
+		editStudent();
+		write2FileStudentData(num);
+	}
+
+	void setStudentData(int num) {
+		FILE* binaryFile;
+		fopen_s(&binaryFile, filename.c_str(), "r");
+		fseek(binaryFile, num * sizeof(st), SEEK_SET);
+		fread_s(&st, sizeof(st), sizeof(st), 1, binaryFile);
+		fclose(binaryFile);
+	}
+	void write2FileStudentData(int num) {
+		int size = countRecords();
+
+		FILE* binaryFile;
+		FILE* tmpFile;
+		fopen_s(&binaryFile, filename.c_str(), "r");
+		fopen_s(&tmpFile, "tmp.txt", "w+");
+		for (int i = 0; i < size; i++) {
+			fread_s(&st, sizeof(st), sizeof(st), 1, binaryFile);
+			fwrite(&st, sizeof(st), 1, tmpFile);
+		}
+		fclose(binaryFile);
+		fclose(tmpFile);
+		remove(filename.c_str());
+		rename("tmp.txt", filename.c_str());
+
+	}
+
 };
 
