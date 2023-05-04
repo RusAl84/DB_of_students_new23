@@ -39,7 +39,7 @@ int main()
         { 
         case 2:
             st->addNewStudent();
-            st->save2file();
+            st->addSt2File();
             break;
         deafault:
             break;

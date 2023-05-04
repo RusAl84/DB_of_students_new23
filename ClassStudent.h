@@ -150,7 +150,7 @@ public:
 		delete edit;
 	}
 
-	void save2file() {
+	void addSt2File() {
 		FILE* binaryFile;
 		fopen_s(&binaryFile, filename.c_str(), "a");
 		fwrite(&st, sizeof(st), 1, binaryFile);
