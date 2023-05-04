@@ -74,6 +74,10 @@ public:
             countItem++;
         }
     }
+    /// <summary>
+    /// Добавить в конец
+    /// </summary>
+    /// <param name="_data">Строковый параметр - значение элемента</param>
     void push_back(string _data) {
         insertItem(countItem, _data);
     }

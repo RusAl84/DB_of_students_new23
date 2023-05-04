@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ClassList">
+    <Position X="2" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAwAAEAAAAAAGAKABAAAAAAAAAAQAAAABEAAA=</HashCode>
+      <FileName>ClassList.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassMenu">
+    <Position X="7.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAUAgAAAAAAAAAAAAoAAAAAAAAAAAAAgAAAgAAIAAA=</HashCode>
+      <FileName>ClassMenu.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassStudent">
+    <Position X="5.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQIAAABAAAAAQAAAAAAACIAAAAAAACAYAgAIAgAAAAA=</HashCode>
+      <FileName>ClassStudent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="node">
+    <Position X="3.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAIAAAA=</HashCode>
+      <FileName>ClassList.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ExamsRecords">
+    <Position X="10.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>ClassStudent.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="StudentNode">
+    <Position X="9" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAgIAAAAAAAAAAQAAAAQFAAkAAAEgAAAAAAAAAA=</HashCode>
+      <FileName>ClassStudent.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="sex">
+    <Position X="10.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>ClassStudent.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="markType">
+    <Position X="7.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQABAAAAAAQAAgAAAAAAAAgAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>ClassStudent.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

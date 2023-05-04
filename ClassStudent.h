@@ -23,7 +23,7 @@ struct StudentNode  // Структура студент
 	char institute[30]; // Институт  (в задании факультет)
 	char department[30]; // Кафедра
 	char group[30]; // Группа	
-	int recordСardNumber; // Номер зачетной книжки
+	char recordСardNumber[30]; // Номер зачетной книжки
 	char birthDateString[15]; // Дата рождения
 	enum class sex sex; // Пол
 	int startYear; // Год начала обучения
@@ -53,7 +53,7 @@ public:
 		strncpy_s(st.institute, "ИКБ",30);
 		strncpy_s(st.department, "Информационная безопасность",30);
 		strncpy_s(st.group, "БИСО-01-22",30);
-		st.recordСardNumber=1032086; 
+		strncpy_s(st.recordСardNumber, "Б1032086", 30);
 		strncpy_s(st.birthDateString, "27.12.1984", 30);
 		st.sex = sex::Men; 
 		st.startYear=2002; 
@@ -90,7 +90,8 @@ public:
 		studMenu->addMenuItem("Изменить пол"); // 7
 		studMenu->addMenuItem("Изменить год  начала обучения"); // 8
 		studMenu->addMenuItem("Изменить номер зачетной книжки"); // 9
-		studMenu->addMenuItem("Просмотреть/изменить успеваемость"); // 10
+		studMenu->addMenuItem("Изменить дату рождения"); // 10
+		studMenu->addMenuItem("Просмотреть/изменить успеваемость"); // 11
 		int selectedItem = -1;
 		ClassMenu* sexMenu = new ClassMenu("Меню редактирования пола студента");
 		sexMenu->addMenuItem("Выход"); // 0
@@ -136,7 +137,6 @@ public:
 					strncpy_s(st.group, str.c_str(), str.size());
 					break;
 				case 7:
-
 					while (sexItem != 0) {
 						sexItem = sexMenu->run();
 						if (sexItem == 1) { st.sex = sex::Men; sexItem = 0; }
@@ -150,6 +150,7 @@ public:
 					edit->setLabel("Введите год начала обучения: ");
 					st.startYear = edit->getData(editType::onlyDigit, 1940, 2012);
 					break;
+
 				deafault:
 					break;
 			}
@@ -204,7 +205,6 @@ public:
 	}
 	void write2FileStudentData(int num) {
 		int size = countRecords();
-
 		FILE* binaryFile;
 		FILE* tmpFile;
 		fopen_s(&binaryFile, filename.c_str(), "r");
@@ -221,8 +221,6 @@ public:
 		fclose(tmpFile);
 		remove(filename.c_str());
 		rename("tmp.txt", filename.c_str());
-
 	}
-
 };
 

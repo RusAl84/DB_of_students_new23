@@ -16,31 +16,23 @@ private:
 	string downTitle; //Заголовок  меню (снизу)
 	
 public:
-
 	ClassMenu(string _upTitle){	
 		upTitle = move(_upTitle);
 		items = new ClassList();
 		//upTitle =  _upTitle; // Так не нядо ... долго;(
 	}
-
 	ClassMenu(): ClassMenu("Главное меню"){
 		downTitle = "Выберите пункт из меню (число): ";
 	}
-
 	~ClassMenu() {
 		delete items;
 	}
-	
 	void addMenuItem(string _item) {
 		items->push_back(_item);
 	}
 	void draw(){
 		system("cls");
 		cout << upTitle << endl;
-		//int count = items.getCount();
-		//for (int i = 0; i < count; i++) {
-		//	cout << i << ". " << items.getItem(i) << endl;
-		//}
 		items->printItems4Menu();
 		cout << downTitle << endl;
 	}
@@ -53,6 +45,4 @@ public:
 		delete cl;
 		return selectItem;
 	}
-
 };
-
