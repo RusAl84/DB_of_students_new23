@@ -46,14 +46,14 @@ public:
 		delete edit;
 	}
 	void setDefaultData() {
-		strncpy_s(st.surName, "Русаков",30);
-		strncpy_s(st.name, "Вячеслав",30);
-		strncpy_s(st.middleName, "Андреевич",30);
-		strncpy_s(st.institute, "ИКБ",30);
-		strncpy_s(st.department, "Информационная безопасность",30);
-		strncpy_s(st.group, "БИСО-01-22",30);
-		strncpy_s(st.recordСardNumber, "Б1032086", 30);
-		strncpy_s(st.birthDateString, "27.12.1984", 30);
+		strcpy_s(st.surName, "Русаков");
+		strcpy_s(st.name, "Вячеслав");
+		strcpy_s(st.middleName, "Андреевич");
+		strcpy_s(st.institute, "ИКБ");
+		strcpy_s(st.department, "Информационная безопасность");
+		strcpy_s(st.group, "БИСО-01-22");
+		strcpy_s(st.recordСardNumber, "Б1032086");
+		strcpy_s(st.birthDateString, "27.12.1984");
 		st.sex = sex::Men; 
 		st.startYear=2002; 
 		for (int i = 0; i < 9; i++)
@@ -107,33 +107,27 @@ public:
 			{
 				case 1:
 					edit->clear(st.surName); edit->setLabel("Введите фамилию: ");
-					str = edit->getData(editType::onlyAlpha, 30).c_str();
-					strncpy_s(st.surName, str.c_str(), str.size());
+					strcpy_s(st.surName, edit->getData(editType::onlyAlpha, 30).c_str());
 					break;
 				case 2:
 					edit->clear(st.name); edit->setLabel("Введите имя: ");
-					str = edit->getData(editType::onlyAlpha, 30).c_str();
-					strncpy_s(st.name, str.c_str(), str.size());
+					strcpy_s(st.name, edit->getData(editType::onlyAlpha, 30).c_str());
 					break;				
 				case 3:
 					edit->clear(st.middleName); edit->setLabel("Введите отчество: ");
-					str = edit->getData(editType::onlyAlpha, 30).c_str();
-					strncpy_s(st.middleName, str.c_str(), str.size());
+					strcpy_s(st.middleName, edit->getData(editType::onlyAlpha, 30).c_str());
 					break;
 				case 4:
 					edit->clear(st.institute); edit->setLabel("Введите институт: ");
-					str = edit->getData(editType::onlyAlpha, 30).c_str();
-					strncpy_s(st.institute, str.c_str(), str.size());
+					strcpy_s(st.institute, edit->getData(editType::onlyAlpha, 30).c_str());
 					break;				
 				case 5:
 					edit->clear(st.department); edit->setLabel("Введите кафедру: ");
-					str = edit->getData(editType::onlyAlpha, 30).c_str();
-					strncpy_s(st.department, str.c_str(), str.size());
+					strcpy_s(st.department, edit->getData(editType::onlyAlpha, 30).c_str());
 					break;
 				case 6:
 					edit->clear(st.group); edit->setLabel("Введите группу: ");
-					str = edit->getData(editType::onlyAlpha, 30).c_str();
-					strncpy_s(st.group, str.c_str(), str.size());
+					strcpy_s(st.group, edit->getData(editType::onlyAlpha, 30).c_str());
 					break;
 				case 7:
 					while (sexItem != 0) {
@@ -145,11 +139,15 @@ public:
 
 					break;
 				case 8:
-					edit->clear(to_string(st.startYear));
-					edit->setLabel("Введите год начала обучения: ");
+					edit->clear(to_string(st.startYear)); edit->setLabel("Введите год начала обучения: ");
 					st.startYear = edit->getData(editType::onlyDigit, 1940, 2012);
 					break;
+				case 9:
+					edit->clear(st.recordСardNumber); edit->setLabel("Введите номер зачетной книжки: ");
+					strcpy_s(st.recordСardNumber, edit->getData(editType::onlyAlpha, 30).c_str());
+					break;
 
+				// TODO case 10
 				deafault:
 					break;
 			}
