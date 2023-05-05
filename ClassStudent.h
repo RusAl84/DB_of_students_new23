@@ -74,6 +74,7 @@ public:
 		cout << " Год  начала обучения: " << st.startYear << endl;
 
 	}
+	
 
 	void editStudent() {
 		setDefaultData();
@@ -147,7 +148,7 @@ public:
 					strcpy_s(st.recordСardNumber, edit->getData(editType::onlyAlpha, 30).c_str());
 					break;
 
-				// TODO case 10
+				// TODO case 10: "Введите дату рождения: "
 				deafault:
 					break;
 			}
